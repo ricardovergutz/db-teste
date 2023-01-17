@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="0,4" last-zoom="1" max-obj-count="13"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<role name="pguser"
+ superuser="true"
+ createdb="true"
+ replication="true"
+ createrole="true"
+ inherit="true"
+ login="true"
+ bypassrls="true"
+ encrypted="true"
+ password="********"
+ sql-disabled="true">
+</role>
+
+<database name="dbteste" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8" is-template="false" allow-conns="true">
+	<role name="pguser"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="tst_atletas" layers="0" collapse-mode="2" max-obj-count="10" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="840" y="40"/>
+	<column name="codorg" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codreg" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="idade" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="altura" not-null="true">
+		<type name="numeric" length="3" precision="2"/>
+	</column>
+	<column name="codpais" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codrua" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="numeroend" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="tst_atletas_pkey" type="pk-constr" table="public.tst_atletas">
+		<columns names="codorg,codreg" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tst_atletas_orgs_modalidades" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="200" y="20"/>
+	<column name="codorg" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codreg" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codmod" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tst_atletas_orgs_modalidades_pkey" type="pk-constr" table="public.tst_atletas_orgs_modalidades">
+		<columns names="codorg,codreg,codmod" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_bairro_codbai_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_bairros" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="140" y="820"/>
+	<column name="codbai" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codcid" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrbairro" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="tst_bairro_pkey" type="pk-constr" table="public.tst_bairros">
+		<columns names="codbai" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_cidades_codcidade_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_cidades" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="640" y="800"/>
+	<column name="codcid" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codest" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrcidade" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="cep" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tst_cidades_pkey" type="pk-constr" table="public.tst_cidades">
+		<columns names="codcid" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_estados_codestado_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_estados" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="1100" y="800"/>
+	<column name="codest" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codpais" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrestado" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="siglaestado" not-null="true">
+		<type name="character varying" length="3"/>
+	</column>
+	<constraint name="tst_estados_pkey" type="pk-constr" table="public.tst_estados">
+		<columns names="codest" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_modalidades_codmodalidade_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_modalidades" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="20" y="240"/>
+	<column name="codmod" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="tst_modalidades_pkey" type="pk-constr" table="public.tst_modalidades">
+		<columns names="codmod" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_organizacoes_codorg_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_organizacoes" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="860" y="460"/>
+	<column name="codorg" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codpais" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrorg" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="siglaorg" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="apelidoorg" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="codrua" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="numeroend" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="tst_organizacoes_pkey" type="pk-constr" table="public.tst_organizacoes">
+		<columns names="codorg" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_paises_codpais_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_paises" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="1420" y="280"/>
+	<column name="codpais" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrpais" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="sigla">
+		<type name="character varying" length="3"/>
+	</column>
+	<column name="descrnacionalidade">
+		<type name="character varying" length="0"/>
+	</column>
+	<constraint name="tst_paises_pkey" type="pk-constr" table="public.tst_paises">
+		<columns names="codpais" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tst_rua_codrua_seq" cycle="false" start="1" increment="1" min-value="1" max-value="2147483647" cache="1" sql-disabled="true">
+	<schema name="public"/>
+	<role name="pguser"/>
+</sequence>
+
+<table name="tst_ruas" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="pguser"/>
+	<position x="360" y="480"/>
+	<column name="codrua" not-null="true"
+	 identity-type="ALWAYS" start="1" increment="1" min-value="1" max-value="2147483647" cache="1">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="codbai" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="descrrua" not-null="true">
+		<type name="character varying" length="0"/>
+	</column>
+	<column name="cep">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="tst_rua_pkey" type="pk-constr" table="public.tst_ruas">
+		<columns names="codrua" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_tst_atletas_to_tst_organizacoes" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_organizacoes" table="public.tst_atletas">
+	<columns names="codorg" ref-type="src-columns"/>
+	<columns names="codorg" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_atletas_to_tst_paises" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_paises" table="public.tst_atletas">
+	<columns names="codpais" ref-type="src-columns"/>
+	<columns names="codpais" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_atletas_to_tst_ruas" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_ruas" table="public.tst_atletas">
+	<columns names="codrua" ref-type="src-columns"/>
+	<columns names="codrua" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_atletas_orgs_modalidades_to_tst_atletas" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_atletas" table="public.tst_atletas_orgs_modalidades">
+	<columns names="codorg,codreg" ref-type="src-columns"/>
+	<columns names="codorg,codreg" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_atletas_orgs_modalidades_to_tst_modalidades" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_modalidades" table="public.tst_atletas_orgs_modalidades">
+	<columns names="codmod" ref-type="src-columns"/>
+	<columns names="codmod" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_bairros_to_tst_cidades" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_cidades" table="public.tst_bairros">
+	<columns names="codcid" ref-type="src-columns"/>
+	<columns names="codcid" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_cidades_to_tst_estados" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_estados" table="public.tst_cidades">
+	<columns names="codest" ref-type="src-columns"/>
+	<columns names="codest" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_estados_to_tst_paises" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_paises" table="public.tst_estados">
+	<columns names="codpais" ref-type="src-columns"/>
+	<columns names="codpais" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_organizacoes_to_tst_paises" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_paises" table="public.tst_organizacoes">
+	<columns names="codpais" ref-type="src-columns"/>
+	<columns names="codpais" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_organizacoes_to_tst_ruas" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_ruas" table="public.tst_organizacoes">
+	<columns names="codrua" ref-type="src-columns"/>
+	<columns names="codrua" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tst_ruas_to_tst_bairros" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.tst_bairros" table="public.tst_ruas">
+	<columns names="codbai" ref-type="src-columns"/>
+	<columns names="codbai" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_tst_atletas_tst_organizacoes" type="relfk" layers="0"
+	 custom-color="#bf1154"
+	 src-table="public.tst_atletas"
+	 dst-table="public.tst_organizacoes" reference-fk="fk_tst_atletas_to_tst_organizacoes"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_atletas_tst_paises" type="relfk" layers="0"
+	 custom-color="#1701d1"
+	 src-table="public.tst_atletas"
+	 dst-table="public.tst_paises" reference-fk="fk_tst_atletas_to_tst_paises"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_atletas_tst_ruas" type="relfk" layers="0"
+	 custom-color="#5369ee"
+	 src-table="public.tst_atletas"
+	 dst-table="public.tst_ruas" reference-fk="fk_tst_atletas_to_tst_ruas"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_atletas_orgs_modalidades_tst_atletas" type="relfk" layers="0"
+	 custom-color="#b4f821"
+	 src-table="public.tst_atletas_orgs_modalidades"
+	 dst-table="public.tst_atletas" reference-fk="fk_tst_atletas_orgs_modalidades_to_tst_atletas"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_atletas_orgs_modalidades_tst_modalidades" type="relfk" layers="0"
+	 custom-color="#139633"
+	 src-table="public.tst_atletas_orgs_modalidades"
+	 dst-table="public.tst_modalidades" reference-fk="fk_tst_atletas_orgs_modalidades_to_tst_modalidades"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_bairros_tst_cidades" type="relfk" layers="0"
+	 custom-color="#dda724"
+	 src-table="public.tst_bairros"
+	 dst-table="public.tst_cidades" reference-fk="fk_tst_bairros_to_tst_cidades"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_cidades_tst_estados" type="relfk" layers="0"
+	 custom-color="#4f0633"
+	 src-table="public.tst_cidades"
+	 dst-table="public.tst_estados" reference-fk="fk_tst_cidades_to_tst_estados"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_estados_tst_paises" type="relfk" layers="0"
+	 custom-color="#9cfb95"
+	 src-table="public.tst_estados"
+	 dst-table="public.tst_paises" reference-fk="fk_tst_estados_to_tst_paises"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_organizacoes_tst_paises" type="relfk" layers="0"
+	 custom-color="#192534"
+	 src-table="public.tst_organizacoes"
+	 dst-table="public.tst_paises" reference-fk="fk_tst_organizacoes_to_tst_paises"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_organizacoes_tst_ruas" type="relfk" layers="0"
+	 custom-color="#1c3d7a"
+	 src-table="public.tst_organizacoes"
+	 dst-table="public.tst_ruas" reference-fk="fk_tst_organizacoes_to_tst_ruas"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_tst_ruas_tst_bairros" type="relfk" layers="0"
+	 custom-color="#07a7fe"
+	 src-table="public.tst_ruas"
+	 dst-table="public.tst_bairros" reference-fk="fk_tst_ruas_to_tst_bairros"
+	 src-required="false" dst-required="true"/>
+
+<permission>
+	<object name="public" type="schema"/>
+	<roles names="pguser"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="public" type="schema"/>
+	<privileges create="true" usage="true"/>
+</permission>
+</dbmodel>
